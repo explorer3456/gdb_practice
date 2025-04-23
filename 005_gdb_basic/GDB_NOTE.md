@@ -62,6 +62,17 @@ gdb) ptype l
 // check current scope for variable during function execution
 gdb) info scope func
 
+// display certain value everytime program stops
+gdb) display arr[0]
+gdb) display &arr[2]
+gdb) display var
+
+// display information of display setting
+gdb) info display
+
+// delete display option
+gdb) undisplay 2 // number from info display
+
 ```
 **GDB useful command - Breakpoint**
 > Breakpoint
@@ -114,12 +125,12 @@ gdb) tty /dev/pts/2
 gdb --tui ./prog
 gdb) run > output.log
 
-```
-> how to save GDB settings ? because everytime we close GDB session,
-> we need to recreate settings
-```
-```
+// return from the function
+// after you breakpoint in some function, and you want to
+// return from that function, use finish command
+gdb) finish
 
+```
 
 **GDB useful command - navigating**
 > navigating to certain location of line .. etc
