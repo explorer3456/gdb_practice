@@ -73,6 +73,10 @@ gdb) info display
 // delete display option
 gdb) undisplay 2 // number from info display
 
+// explicitly change value
+gdb) set var_symbol 5 // was 8.
+gdb) print var_symbol
+
 ```
 **GDB useful command - Breakpoint**
 > Breakpoint
