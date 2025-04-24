@@ -15,8 +15,44 @@ gdb) up // finish current function can return to caller function.
 **customized GDB commands**
 > you want to define your own command
 ```
-gdb) define jhkim
+gdb) define ditto
 gdb) print size
 gdb) bt
 gdb) end
+```
+> you can edit .gdbinit file to define your customized commands
+```
+vi .gdbinit
+define ditto
+print size
+bt
+end
+```
+**Add python to GDB**
+> you can use python API with GDB after building gdb with source code
+```
+git clone gdb.git
+make --with-python // this is not correct
+```
+> using python in gdb
+> May be using python is useful with automating script, and generate test cases.
+```
+gdb) pi
+Python is not interactive.
+
+gdb) python gdb.execute("start")
+```
+> you can write python script and source it from gdb
+> online documentation about python and 
+```
+// python script
+import gdb
+gdb.execute("start")
+
+for i in range(0,3):
+        gdb.execute("next")
+...
+
+gdb) source python_script
+
 ```

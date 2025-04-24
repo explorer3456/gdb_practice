@@ -94,6 +94,12 @@ gdb) break if i > 442 && i < 500
 // display before / after value of val.
 gdb) watch var
 
+// when gdb hit the breakpoint, you can define command to execute
+gdb) commands
+gdb) print size
+gdb) bt
+gdb) end
+
 ```
 
 **GDB TUI(Text User Interface)**
@@ -130,6 +136,9 @@ gdb) run > output.log
 // return from that function, use finish command
 gdb) finish
 
+// reload symbol table
+gdb) file my_new_elf
+
 ```
 
 **GDB useful command - navigating**
@@ -137,4 +146,17 @@ gdb) finish
 ```
 gdb) advance (symbol or line)  // run until PC meets to certain symbol
 gdb) until (symbol or line)  // run until PC meets certain symbol
+```
+> Call function from GDB
+```
+gdb) start
+gdb) list func
+gdb) call func(45,4) // this will directly call function from nowhere.
+```
+
+**GDB useful command - memory**
+> display memory contents
+```
+gdb) x/4h 0x20000000 // print 4byte from 0x20000000
+gdb) x/4h &priv.data // you can print with symbol.
 ```
